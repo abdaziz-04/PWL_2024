@@ -31,6 +31,18 @@ Route::get('about', function () {
     return '2241720088 Abdul Aziz';
 });
 
-Route::get('/user/{name}', function ($name) {
-    return 'Nama Saya ' . $name;
+// Route::get('/user/{name}', function ($name) {
+//     return 'Nama Saya ' . $name;
+// });
+
+Route::get('posts/{post}/comments/{comment}', function ($postId, $commentId) {
+    return 'Pos ke-' . $postId . " Komentar ke-: " . $commentId;
+});
+
+Route::get('article/{id}', function ($id) {
+    return 'Halaman artikel dengan id ' . $id;
+});
+
+Route::get('/user/{name?}', function ($name = null) {
+    return 'Nama saya ' . $name;
 });
