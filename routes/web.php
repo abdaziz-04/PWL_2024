@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\UserProfileController;
@@ -67,6 +70,6 @@ Route::get('/user/{name?}', function ($name = 'John') {
 Route::get('/hello', [WelcomeController::class, 'hello']);
 
 // Tugas Controller
-Route::get('/', [PageController::class, 'index']);
-Route::get('about', [PageController::class, 'about']);
-Route::get('article/{id}', [PageController::class, 'articles']);
+Route::get('/', [HomeController::class, 'index']);
+Route::get('about', [AboutController::class, 'about']);
+Route::get('article/{id}', [ArticleController::class, 'articles']);
