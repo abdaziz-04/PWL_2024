@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\PhotoController;
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -69,7 +71,19 @@ Route::get('/user/{name?}', function ($name = 'John') {
 
 Route::get('/hello', [WelcomeController::class, 'hello']);
 
-// Tugas Controller
+// Single Controller
 Route::get('/', [HomeController::class, 'index']);
 Route::get('about', [AboutController::class, 'about']);
 Route::get('article/{id}', [ArticleController::class, 'articles']);
+
+
+// Resource controller
+Route::resource('photos', PhotoController::class);
+
+// Route::resource('photos', PhotoController::class)->only(
+//     ['index', 'show']
+// );
+
+Route::resource('photos', PhotoController::class)->except([
+    'create', 'store', 'update', 'destroy'
+]);
