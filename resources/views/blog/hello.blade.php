@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>Hello World</h3>
+    <h1>Hello World {{$name}}</h1>
 </body>
 </html>
