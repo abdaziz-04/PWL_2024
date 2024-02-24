@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Route;
@@ -15,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 Route::get('/hello', function () {
@@ -28,9 +29,9 @@ Route::get('/world', function () {
     return 'World';
 });
 
-Route::get('about', function () {
-    return '2241720088 Abdul Aziz';
-});
+// Route::get('about', function () {
+//     return '2241720088 Abdul Aziz';
+// });
 
 // Route::get('/user/{name}', function ($name) {
 //     return 'Nama Saya ' . $name;
@@ -40,9 +41,9 @@ Route::get('posts/{post}/comments/{comment}', function ($postId, $commentId) {
     return 'Pos ke-' . $postId . " Komentar ke-: " . $commentId;
 });
 
-Route::get('article/{id}', function ($id) {
-    return 'Halaman artikel dengan id ' . $id;
-});
+// Route::get('article/{id}', function ($id) {
+//     return 'Halaman artikel dengan id ' . $id;
+// });
 
 Route::get('/user/{name?}', function ($name = 'John') {
     return 'Nama saya ' . $name;
@@ -64,3 +65,8 @@ Route::get('/user/{name?}', function ($name = 'John') {
 // return redirect()->route('profile');
 
 Route::get('/hello', [WelcomeController::class, 'hello']);
+
+// Tugas Controller
+Route::get('/', [PageController::class, 'index']);
+Route::get('about', [PageController::class, 'about']);
+Route::get('article/{id}', [PageController::class, 'articles']);
